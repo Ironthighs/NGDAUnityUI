@@ -27,7 +27,6 @@ public class HeartController : MonoBehaviour
         get { return _currentState; }
     }
 
-
     public void TakeDamage(int damage)
     {
         _currentState = Mathf.Clamp(_currentState - damage, 0, _numHeartStates);
@@ -39,14 +38,6 @@ public class HeartController : MonoBehaviour
         _isPulsing = isPulsing;
         transform.localScale = Vector3.one;
     }
-
-    //private void OnGUI()
-    //{
-    //    if(GUI.Button(new Rect(20, 20, 150, 40), "Take Damage"))
-    //    {
-    //        TakeDamage(1);
-    //    }
-    //}
 
     private void Start ()
     {

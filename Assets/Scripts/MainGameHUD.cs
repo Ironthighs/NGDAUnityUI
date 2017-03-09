@@ -19,12 +19,16 @@ public class MainGameHUD : MonoBehaviour
         }
     }
 
-
     [SerializeField]
     private LifeController _lifeController;
 
     [SerializeField]
     private Text _rupeeCount;
+
+    private void Awake()
+    {
+        _instance = this;
+    }
 
     public void TakeDamage(int heartSegments)
     {
@@ -34,25 +38,5 @@ public class MainGameHUD : MonoBehaviour
     public void SetRupeeCount(string rupeeCount)
     {
         _rupeeCount.text = rupeeCount;
-    }
-
-	void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
-
-    public void OnGUI()
-    {
-        if (GUI.Button(new Rect(20, 20, 150, 80), "Add Heart"))
-        {
-            TakeDamage(3);
-
-        }
     }
 }

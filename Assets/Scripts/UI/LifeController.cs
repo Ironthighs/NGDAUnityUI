@@ -18,13 +18,6 @@ public class LifeController : MonoBehaviour
 
     private HeartController _currentHeart;
 
-    
-
-    private void Awake()
-    {
-    
-    }
-
     public HeartController AddNewHeart()
     {
         var newObject = Instantiate<GameObject>(_heartPrefab);
@@ -55,7 +48,6 @@ public class LifeController : MonoBehaviour
         }   
     }
 
-    // Use this for initialization
     void Start ()
     {
 		for(int i = 0; i < _numHearts; i++)
@@ -67,10 +59,13 @@ public class LifeController : MonoBehaviour
             _currentHeart.SetPulsing(true);
         }
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    private void OnGUI()
     {
-		
-	}
+        if(GUI.Button(new Rect(20, 100, 100, 30), "Add Heart"))
+        {
+            AddNewHeart();
+        }
+    }
+
 }
